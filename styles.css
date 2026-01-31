@@ -7,15 +7,16 @@
 }
 
 :root {
-    --primary-green: #2e7d32;
-    --dark-green: #1b5e20;
-    --maroon: #8b1538;
-    --dark-maroon: #5d0e25;
-    --dark-gray: #3a3a3a;
-    --light-gray: #f5f5f5;
+    --primary-blue: #4A90E2;
+    --light-blue: #87CEEB;
+    --dark-blue: #2C5F8D;
+    --navy-blue: #1e3a5f;
     --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --dark-gray: #3a3a3a;
     --text-dark: #333;
     --border-color: #ddd;
+    --accent-blue: #5BA3D0;
 }
 
 html {
@@ -37,7 +38,7 @@ body {
 
 /* ===== TOP BAR ===== */
 .top-bar {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
     padding: 10px 0;
     font-size: 13px;
@@ -81,7 +82,7 @@ body {
 
 .social-icon:hover {
     background: var(--white);
-    color: var(--primary-green);
+    color: var(--primary-blue);
 }
 
 /* ===== HEADER / NAVIGATION ===== */
@@ -109,7 +110,7 @@ body {
 .logo-placeholder {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
     color: var(--white);
     display: flex;
     align-items: center;
@@ -158,7 +159,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
 }
 
@@ -188,7 +189,7 @@ body {
 .hero-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
     /* You can replace this with actual image: background: url('hero-image.jpg') center/cover; */
     position: relative;
 }
@@ -224,7 +225,7 @@ body {
     display: inline-block;
     padding: 15px 40px;
     background: var(--white);
-    color: var(--primary-green);
+    color: var(--primary-blue);
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
@@ -254,15 +255,15 @@ body {
 }
 
 .mission-box {
-    background: var(--primary-green);
+    background: var(--light-blue);
 }
 
 .objectives-box {
-    background: var(--maroon);
+    background: var(--primary-blue);
 }
 
 .history-box {
-    background: var(--primary-green);
+    background: var(--light-blue);
 }
 
 .column-box h3 {
@@ -317,7 +318,7 @@ body {
 .welcome-image .img-placeholder {
     width: 100%;
     height: 350px;
-    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -334,7 +335,7 @@ body {
 }
 
 .read-more-link {
-    color: var(--primary-green);
+    color: var(--primary-blue);
     text-decoration: none;
     font-style: italic;
 }
@@ -344,7 +345,7 @@ body {
 }
 
 .why-choose-box-inline {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     padding: 30px;
     border-radius: 8px;
     color: var(--white);
@@ -369,7 +370,7 @@ body {
 }
 
 .notice-board-box {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     padding: 40px;
     border-radius: 8px;
     color: var(--white);
@@ -458,7 +459,7 @@ body {
 .club-img-placeholder {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,7 +501,7 @@ body {
 }
 
 .fees-table thead {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
 }
 
@@ -597,7 +598,7 @@ body {
 
 .submit-btn {
     padding: 12px;
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
     border: none;
     border-radius: 4px;
@@ -607,7 +608,7 @@ body {
 }
 
 .submit-btn:hover {
-    background: var(--dark-green);
+    background: var(--dark-blue);
 }
 
 .social-icons-footer {
@@ -619,7 +620,7 @@ body {
 .social-icon-footer {
     width: 35px;
     height: 35px;
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
     display: flex;
     align-items: center;
@@ -631,7 +632,7 @@ body {
 }
 
 .social-icon-footer:hover {
-    background: var(--dark-green);
+    background: var(--dark-blue);
     transform: translateY(-3px);
 }
 
@@ -738,7 +739,7 @@ body {
 }
 
 .featured-card {
-    border: 3px solid var(--primary-green);
+    border: 3px solid var(--primary-blue);
 }
 
 .popular-badge {
@@ -801,25 +802,25 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
     border: none;
 }
 
 .btn-primary:hover {
-    background: var(--dark-green);
+    background: var(--dark-blue);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--primary-green);
-    border: 2px solid var(--primary-green);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
 }
 
 .btn-outline:hover {
-    background: var(--primary-green);
+    background: var(--primary-blue);
     color: var(--white);
 }
 
@@ -850,7 +851,7 @@ body {
     padding: 25px;
     background: var(--light-gray);
     border-radius: 8px;
-    border-left: 4px solid var(--primary-green);
+    border-left: 4px solid var(--primary-blue);
 }
 
 .requirement-box h4 {
@@ -925,7 +926,7 @@ body {
     content: '';
     width: 4px;
     height: 24px;
-    background: var(--primary-green);
+    background: var(--primary-blue);
 }
 
 .form-grid {
@@ -970,8 +971,8 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-green);
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
 .form-group textarea {
