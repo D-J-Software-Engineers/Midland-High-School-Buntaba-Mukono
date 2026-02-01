@@ -81,48 +81,62 @@ if (modal) {
 // O'Level Form Submission
 const oLevelForm = document.getElementById('oLevelForm');
 if (oLevelForm) {
-    oLevelForm.addEventListener('submit', (e) => {
+    oLevelForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Get form data
+
         const formData = new FormData(oLevelForm);
         const data = Object.fromEntries(formData);
-        
-        // Log to console (for testing)
-        console.log('O\'Level Application Data:', data);
-        
-        // Show success message
-        showModal();
-        
-        // Reset form
-        oLevelForm.reset();
-        
-        // In a real application, send data to server:
-        // sendToServer('/api/olevel-application', data);
+        data.application_type = "O'Level";  // add type
+
+        try {
+            const res = await fetch('/api/apply', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            if (result.success) {
+                showModal();
+                oLevelForm.reset();
+            } else {
+                alert("Failed to submit: " + (result.error || "Unknown error"));
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Error submitting form. Please try again.");
+        }
     });
 }
 
 // A'Level Form Submission
 const aLevelForm = document.getElementById('aLevelForm');
 if (aLevelForm) {
-    aLevelForm.addEventListener('submit', (e) => {
+    aLevelForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Get form data
+
         const formData = new FormData(aLevelForm);
         const data = Object.fromEntries(formData);
-        
-        // Log to console (for testing)
-        console.log('A\'Level Application Data:', data);
-        
-        // Show success message
-        showModal();
-        
-        // Reset form
-        aLevelForm.reset();
-        
-        // In a real application, send data to server:
-        // sendToServer('/api/alevel-application', data);
+        data.application_type = "A'Level";  // add type
+
+        try {
+            const res = await fetch('/api/apply', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            if (result.success) {
+                showModal();
+                aLevelForm.reset();
+            } else {
+                alert("Failed to submit: " + (result.error || "Unknown error"));
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Error submitting form. Please try again.");
+        }
     });
 }
 
@@ -279,7 +293,7 @@ backToTopBtn.style.cssText = `
     right: 30px;
     width: 50px;
     height: 50px;
-    background: #2e7d32;
+    background: #4A90E2;
     color: white;
     border: none;
     border-radius: 50%;
@@ -309,11 +323,38 @@ backToTopBtn.addEventListener('click', () => {
 });
 
 backToTopBtn.addEventListener('mouseenter', () => {
-    backToTopBtn.style.background = '#1b5e20';
+    backToTopBtn.style.background = '#2C5F8D';
     backToTopBtn.style.transform = 'scale(1.1)';
 });
 
 backToTopBtn.addEventListener('mouseleave', () => {
-    backToTopBtn.style.background = '#2e7d32';
+    backToTopBtn.style.background = '#4A90E2';
     backToTopBtn.style.transform = 'scale(1)';
 });
+async function sendToServer(data, type) {
+    try {
+        const response = await fetch(
+            "https://midland-highschool-backend.vercel.app/api/apply",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    type,   // "OLEVEL" or "ALEVEL"
+                    ...data
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to submit application");
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("Submission failed. Please try again.");
+        throw error;
+    }
+}
