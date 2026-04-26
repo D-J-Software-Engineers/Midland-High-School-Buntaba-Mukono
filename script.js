@@ -267,7 +267,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe sections for animation
-const animatedSections = document.querySelectorAll('.welcome-section, .clubs-section, .notice-board-section');
+const animatedSections = document.querySelectorAll('.welcome-section, .clubs-section, .notice-board-section, .staff-section, .gallery-section, .important-days-section');
 animatedSections.forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';

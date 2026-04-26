@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A'Level Application - Midland High School</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
@@ -27,21 +31,21 @@
             <div class="container nav-container">
                 <div class="logo-section">
                     <div class="logo-placeholder">
-    <img src="/photos/Buntaba.png" alt="Badge Name" style="height: 50px;">
-</div>
+                        <img src="photos/Buntaba.png" alt="Badge Name" style="height: 50px;">
+                    </div>
                     <div class="school-identity">
-                        <h1 class="school-name">Midland High School</h1>
-                        <p class="school-motto">arise and shine forever!</p>
+                        <h1 class="school-name">Midland High School Buntaba</h1>
+                        <p class="school-motto">Building Brains with Character</p>
                     </div>
                 </div>
-                
+
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="nav-link">HOME</a></li>
                     <li><a href="apply-online.html" class="nav-link">APPLY ONLINE</a></li>
                     <li><a href="o-level-application.html" class="nav-link">O'LEVEL APPLICATION</a></li>
                     <li><a href="index.html#contact" class="nav-link">CONTACT</a></li>
                 </ul>
-                
+
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
                     <span></span>
@@ -58,7 +62,7 @@
                 <h1>A'Level Admission Application</h1>
                 <p>Complete the form below to apply for A'Level (Senior 5-6)</p>
             </div>
-            
+
             <div class="portal-container">
                 <form class="admission-form" id="aLevelForm">
                     <div class="form-section">
@@ -66,7 +70,8 @@
                         <div class="form-grid">
                             <div class="form-group full-width">
                                 <label for="a-fullname">Full Name <span class="required">*</span></label>
-                                <input type="text" id="a-fullname" name="fullname" required placeholder="Enter student's full name">
+                                <input type="text" id="a-fullname" name="fullname" required
+                                    placeholder="Enter student's full name">
                             </div>
                             <div class="form-group">
                                 <label for="a-dob">Date of Birth <span class="required">*</span></label>
@@ -90,7 +95,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="a-nationality">Nationality <span class="required">*</span></label>
-                                <input type="text" id="a-nationality" name="nationality" required placeholder="e.g., Ugandan">
+                                <input type="text" id="a-nationality" name="nationality" required
+                                    placeholder="e.g., Ugandan">
                             </div>
                         </div>
                     </div>
@@ -100,7 +106,8 @@
                         <div class="form-grid">
                             <div class="form-group full-width">
                                 <label for="a-olevel-school">O'Level School Name <span class="required">*</span></label>
-                                <input type="text" id="a-olevel-school" name="olevel_school" required placeholder="Name of O'Level school">
+                                <input type="text" id="a-olevel-school" name="olevel_school" required
+                                    placeholder="Name of O'Level school">
                             </div>
                             <div class="form-group">
                                 <label for="a-uce-year">UCE Year <span class="required">*</span></label>
@@ -108,15 +115,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="a-uce-aggregate">UCE Aggregate <span class="required">*</span></label>
-                                <input type="text" id="a-uce-aggregate" name="uce_aggregate" required placeholder="e.g., 24">
+                                <input type="text" id="a-uce-aggregate" name="uce_aggregate" required
+                                    placeholder="e.g., 24">
                             </div>
                             <div class="form-group">
                                 <label for="a-distinctions">Number of Distinctions</label>
-                                <input type="number" id="a-distinctions" name="distinctions" placeholder="e.g., 5" min="0" max="8">
+                                <input type="number" id="a-distinctions" name="distinctions" placeholder="e.g., 5"
+                                    min="0" max="8">
                             </div>
                             <div class="form-group">
                                 <label for="a-credits">Number of Credits</label>
-                                <input type="number" id="a-credits" name="credits" placeholder="e.g., 3" min="0" max="8">
+                                <input type="number" id="a-credits" name="credits" placeholder="e.g., 3" min="0"
+                                    max="8">
                             </div>
                         </div>
                     </div>
@@ -125,7 +135,8 @@
                         <h3>Subject Combination</h3>
                         <div class="form-grid">
                             <div class="form-group full-width">
-                                <label for="a-combination">Preferred Subject Combination <span class="required">*</span></label>
+                                <label for="a-combination">Preferred Subject Combination <span
+                                        class="required">*</span></label>
                                 <select id="a-combination" name="combination" required>
                                     <option value="">Select Subject Combination</option>
                                     <optgroup label="Sciences">
@@ -155,19 +166,23 @@
                         <div class="form-grid">
                             <div class="form-group full-width">
                                 <label for="a-parent-name">Parent/Guardian Name <span class="required">*</span></label>
-                                <input type="text" id="a-parent-name" name="parent_name" required placeholder="Full name of parent/guardian">
+                                <input type="text" id="a-parent-name" name="parent_name" required
+                                    placeholder="Full name of parent/guardian">
                             </div>
                             <div class="form-group">
                                 <label for="a-parent-phone">Phone Number <span class="required">*</span></label>
-                                <input type="tel" id="a-parent-phone" name="parent_phone" required placeholder="+256 XXX XXXXXX">
+                                <input type="tel" id="a-parent-phone" name="parent_phone" required
+                                    placeholder="+256 XXX XXXXXX">
                             </div>
                             <div class="form-group">
                                 <label for="a-parent-email">Email Address</label>
-                                <input type="email" id="a-parent-email" name="parent_email" placeholder="parent@example.com">
+                                <input type="email" id="a-parent-email" name="parent_email"
+                                    placeholder="parent@example.com">
                             </div>
                             <div class="form-group full-width">
                                 <label for="a-address">Home Address <span class="required">*</span></label>
-                                <textarea id="a-address" name="address" required rows="3" placeholder="Enter complete home address"></textarea>
+                                <textarea id="a-address" name="address" required rows="3"
+                                    placeholder="Enter complete home address"></textarea>
                             </div>
                         </div>
                     </div>
@@ -177,11 +192,13 @@
                         <div class="form-grid">
                             <div class="form-group full-width">
                                 <label for="a-medical">Medical Conditions</label>
-                                <textarea id="a-medical" name="medical" rows="2" placeholder="Please list any medical conditions, allergies, or special needs"></textarea>
+                                <textarea id="a-medical" name="medical" rows="2"
+                                    placeholder="Please list any medical conditions, allergies, or special needs"></textarea>
                             </div>
                             <div class="form-group full-width">
                                 <label for="a-comments">Additional Comments</label>
-                                <textarea id="a-comments" name="comments" rows="3" placeholder="Any other information you'd like to share"></textarea>
+                                <textarea id="a-comments" name="comments" rows="3"
+                                    placeholder="Any other information you'd like to share"></textarea>
                             </div>
                         </div>
                     </div>
@@ -215,11 +232,13 @@
         <div class="modal-content">
             <div class="modal-icon">✓</div>
             <h3>Application Submitted Successfully!</h3>
-            <p>Thank you for your interest in Midland High School. We have received your A'Level application and will contact you soon.</p>
+            <p>Thank you for your interest in Midland High School. We have received your A'Level application and will
+                contact you soon.</p>
             <button class="btn btn-primary" onclick="closeModal()">Close</button>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
