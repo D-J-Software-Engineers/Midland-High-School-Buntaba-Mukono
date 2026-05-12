@@ -20,6 +20,40 @@ if (mobileMenuToggle) {
     });
 }
 
+// Mobile Dropdown Toggle
+const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    if (toggle) {
+        toggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                
+                // Close other dropdowns
+                dropdowns.forEach(other => {
+                    if (other !== dropdown) {
+                        other.classList.remove('active');
+                        const otherArrow = other.querySelector('.arrow');
+                        if (otherArrow) otherArrow.style.transform = 'rotate(0)';
+                    }
+                });
+
+                dropdown.classList.toggle('active');
+                
+                // Rotate arrow
+                const arrow = toggle.querySelector('.arrow');
+                if (arrow) {
+                    if (dropdown.classList.contains('active')) {
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(0)';
+                    }
+                }
+            }
+        });
+    }
+});
+
 // Close mobile menu when clicking on a link
 const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(link => {
@@ -147,27 +181,21 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Scroll reveal animation for sections
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
+// Observe sections for animation
+const animatedSections = document.querySelectorAll('.welcome-section, .clubs-section, .notice-board-section, .staff-section, .gallery-section, .important-days-section');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('revealed');
         }
     });
-}, observerOptions);
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
 
-// Observe sections for animation
-const animatedSections = document.querySelectorAll('.welcome-section, .clubs-section, .notice-board-section, .staff-section, .gallery-section, .important-days-section');
 animatedSections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    section.classList.add('reveal-on-scroll');
     observer.observe(section);
 });
 
@@ -221,3 +249,62 @@ backToTopBtn.addEventListener('mouseleave', () => {
 });
 
 console.log('Midland High School website loaded successfully!');
+// Master Guide Stories Logic
+const storiesTrack = document.getElementById('storiesTrack');
+const storyCards = document.querySelectorAll('.story-card');
+const prevStoryBtn = document.getElementById('prevStory');
+const nextStoryBtn = document.getElementById('nextStory');
+const storiesDotsContainer = document.getElementById('storiesDots');
+
+if (storiesTrack && storyCards.length > 0) {
+    let currentStoryIndex = 0;
+    
+    // Create dots
+    storyCards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `story-dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToStory(index));
+        storiesDotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.story-dot');
+    
+    function goToStory(index) {
+        storyCards[currentStoryIndex].classList.remove('active');
+        dots[currentStoryIndex].classList.remove('active');
+        
+        currentStoryIndex = index;
+        if (currentStoryIndex >= storyCards.length) currentStoryIndex = 0;
+        if (currentStoryIndex < 0) currentStoryIndex = storyCards.length - 1;
+        
+        storyCards[currentStoryIndex].classList.add('active');
+        dots[currentStoryIndex].classList.add('active');
+    }
+    
+    nextStoryBtn.addEventListener('click', () => goToStory(currentStoryIndex + 1));
+    prevStoryBtn.addEventListener('click', () => goToStory(currentStoryIndex - 1));
+    
+    // Auto-advance
+    setInterval(() => {
+        goToStory(currentStoryIndex + 1);
+    }, 6000);
+}
+
+// FAQ Accordion Logic
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+        });
+        
+        // Toggle current item
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
