@@ -161,25 +161,35 @@ if (navbar) {
 }
 
 // Active navigation link based on scroll position
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section[id]');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
+const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname.split('/').pop() === '';
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+if (isHomePage) {
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sections = document.querySelectorAll('section[id], footer[id]');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${current}` || href === `index.html#${current}`) {
+                navLinks.forEach(l => {
+                    const h = l.getAttribute('href');
+                    if (h && (h.startsWith('#') || h.startsWith('index.html#'))) {
+                        l.classList.remove('active');
+                    }
+                });
+                link.classList.add('active');
+            }
+        });
     });
-});
+}
 
 // Observe sections for animation
 const animatedSections = document.querySelectorAll('.welcome-section, .clubs-section, .notice-board-section, .staff-section, .gallery-section, .important-days-section');
@@ -308,3 +318,14 @@ faqItems.forEach(item => {
         }
     });
 });
+
+// Hero Background Slideshow
+const slides = document.querySelectorAll('.hero-slider .slide');
+if (slides.length > 0) {
+    let currentSlide = 0;
+    setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }, 5000);
+}
